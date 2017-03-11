@@ -2024,7 +2024,11 @@ class AI_ChessOffenseStrategy extends AI_ChessStrategy {
 								PossibleMove pm = new PossibleMove((short) 13, x0, y0, x1, y1);
 								switch (board.getBoardCode()[x1][y1]) {
 								case 'P':
-									shouldAdd = true;
+									shouldAdd = true;/*
+									* If an offense possible move puts a piece of equal or
+									* higher value in two move or one move danger, it should
+									* not be added to the list of possible moves.
+									*/
 									pm.setPriority((short) 11);
 									for (x2 = 0; x2 < 8; ++x2)
 										for (y2 = 0; y2 < 8; ++y2)
